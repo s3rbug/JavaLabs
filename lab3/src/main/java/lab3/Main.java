@@ -6,10 +6,23 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ShapesModel model = new ShapesModel(generateShapes());
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter file name if you want to load shapes from that file or hit Enter to load default values: ");
+        String inputFilename = scanner.nextLine();
+        ArrayList<Shape> shapes;
+        if (inputFilename.equals("")) {
+            shapes = generateShapes();
+        } else {
+            try {
+                shapes = Shape.readArrayListFromFile(inputFilename);
+            } catch (Exception exception) {
+                exception.printStackTrace();
+                return;
+            }
+        }
+        ShapesModel model = new ShapesModel(shapes);
         ShapesView view = new ShapesView();
         ShapesController controller = new ShapesController(model, view);
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter shape to calculate their area (Circle, Triangle, Rectangle): ");
         String shapeTypeToCalculateArea = scanner.nextLine();
         controller.printSumOfAllAreas();
@@ -24,6 +37,15 @@ public class Main {
         controller.printShapes();
         System.out.println("\tDraw first element:");
         controller.draw(0);
+        System.out.print("Enter file name if you want to save shapes to file or hit Enter to skip: ");
+        String outputFilename = scanner.nextLine();
+        if (!outputFilename.equals("")) {
+            try {
+                Shape.writeArrayListToFile(shapes, outputFilename);
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        }
     }
 
     private static ArrayList<Shape> generateShapes() {

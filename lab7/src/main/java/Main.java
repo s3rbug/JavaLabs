@@ -19,6 +19,7 @@ public class Main {
             }
             return sum == number;
         };
+
         for(long i = 2; i <= n; ++i){
             if(functionalObject.isPerfectNumber(i)){
                 System.out.print(" " + i);
