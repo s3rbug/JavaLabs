@@ -8,7 +8,6 @@ import static org.junit.Assert.*;
 
 public class TestCages {
     Zoo zoo;
-    Bird bird;
     Eagle eagle;
     Lion lion;
     Zebra zebra;
@@ -18,7 +17,6 @@ public class TestCages {
     HoofedCage hoofedCage;
     @Before
     public void init(){
-        bird = new Bird("Bird", 10, 10);
         eagle = new Eagle("Eagle", 10, 10);
         lion = new Lion("Lion", 10, 10);
         zebra = new Zebra("Zebra", 10, 10);
@@ -30,14 +28,13 @@ public class TestCages {
     }
     @Test
     public void addingCagesToZoo() throws Exception {
-        birdCage.addAnimal(bird);
         lionCage.addAnimal(lion);
         hoofedCage.addAnimal(zebra);
         hoofedCage.addAnimal(giraffe);
         zoo.addCage(birdCage);
         zoo.addCage(lionCage);
         zoo.addCage(hoofedCage);
-        assertEquals(4, zoo.getCountOfAnimals());
+        assertEquals(3, zoo.getCountOfAnimals());
     }
 
     @Test

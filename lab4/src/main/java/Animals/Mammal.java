@@ -1,6 +1,6 @@
 package Animals;
 
-public class Mammal extends Animal {
+public abstract class Mammal extends Animal {
     Mammal(String name, int age, double weight) {
         super(name, age, weight);
     }

@@ -29,6 +29,7 @@ abstract class Shape implements Drawable, Serializable {
     public static ArrayList<Shape> readArrayListFromFile(String filename) throws IOException, ClassNotFoundException {
         FileInputStream fileInputStream = new FileInputStream(filename);
         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+        @SuppressWarnings("unchecked cast")
         ArrayList<Shape> shapesFromFile = (ArrayList<Shape>) objectInputStream.readObject();
         objectInputStream.close();
         return shapesFromFile;

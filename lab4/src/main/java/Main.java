@@ -4,7 +4,6 @@ import Zoo.Zoo;
 
 public class Main {
     public static void main(String[] args) {
-        Bird bird = new Bird("Bird", 10, 10);
         Eagle eagle = new Eagle("Eagle", 10, 10);
         Lion lion = new Lion("Lion", 10, 10);
         Zebra zebra = new Zebra("Zebra", 10, 10);
@@ -14,11 +13,9 @@ public class Main {
         LionCage lionCage = new LionCage(2);
         HoofedCage hoofedCage = new HoofedCage(3);
         try {
-            birdCage.addAnimal(bird);
             birdCage.addAnimal(eagle);
             lionCage.addAnimal(lion);
             hoofedCage.addAnimal(zebra);
-            hoofedCage.addAnimal(giraffe);
             Zoo zoo = new Zoo();
             birdCage.removeAnimal(eagle);
             zoo.addCage(birdCage);

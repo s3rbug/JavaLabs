@@ -22,7 +22,7 @@ abstract public class Cage<T extends Animal> {
 
     public void addAnimal(T animal) throws Exception {
         if (this.getCountAnimals() == this.getMaxCapacity()) {
-            throw new Exception("Cages.Cage is full");
+            throw new Exception("Cage is full");
         }
         if(!checkIfCorrectAnimal(animal)){
             throw new Exception("Wrong animal type");
@@ -33,7 +33,7 @@ abstract public class Cage<T extends Animal> {
     public void removeAnimal(T animal) throws Exception {
         boolean removed = animals.remove(animal);
         if(!removed) {
-            throw new Exception("Animals.Animal not found");
+            throw new Exception("Animal not found");
         }
     }
 
