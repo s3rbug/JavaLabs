@@ -14,11 +14,11 @@ public class MonteCarloCalculations {
         return iterations / countThreads;
     }
 
-    public int getCountThreads(){
+    public int getCountThreads() {
         return countThreads;
     }
 
-    public int getTotalIterations(){
+    public int getTotalIterations() {
         return iterations;
     }
 }
